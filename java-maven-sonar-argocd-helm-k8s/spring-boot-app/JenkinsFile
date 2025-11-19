@@ -23,7 +23,7 @@ pipeline {
 
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://YOUR-SONAR-IP:9000"    // ⚠️ change this
+        SONAR_URL = "http://43.205.203.40:9000"    // ⚠️ change this
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -60,7 +60,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
           sh '''
-            git config user.email "suraj@example.com"
+            git config user.email "surajdhakad80@gmail.com"
             git config user.name "Suraj Dhakad"
 
             sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
